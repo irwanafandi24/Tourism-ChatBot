@@ -1,40 +1,45 @@
 import re
-name, location, destination, member, days, current_location = '', '', '', 0, 0, ''
+import math
+import Constant as keys
+NAME, DESTINATION, DAYS, CURRENT_DAYS, CURRENT_LOCATION, TMP_LOCATION, TMP_PRICE = '', '', 0, 1, '', '', 0
+SAVE_DEST, SAVE_RESTO, SAVE_HOTEL, TOTAL_PRICE = [], [], [], []
+
+df = keys.TOURISM_DATA
 
 def message_response(input_text):
-    global name, location, destination, member, days, current_location
+    global NAME, DESTINATION, DAYS, CURRENT_LOCATION, SAVE_DEST, SAVE_RESTO, SAVE_HOTEL
 
     user_message = str(input_text).lower()
     message_split = re.split("[' ]", user_message)
 
-    ##get destination
-    if user_message == 'bali':
-        destination = 'Bali'
-
     if user_message.startswith("saya"):
-        name = (' '.join(message_split[1:])).capitalize()
-        reply_text = "Hai "+name+"! salam kenal ya.\nSudah tahu mau liburan kemana? Chavel punya rekomendasi nih special buat kamu, <b><i>Mungkin kesini asik</i></b>"
+        NAME = (' '.join(message_split[1:])).capitalize()
+        reply_text = "Hai "+NAME+"! salam kenal ya.\nSudah tahu mau liburan kemana? Chavel punya rekomendasi nih special buat kamu, <b><i>Mungkin kesini asik</i></b>"
         return reply_text
 
     if user_message.endswith("hari"):
-        days = int(user_message.split()[0])
-        reply_text = "Biar <b>"+str(days)+" harimu</b> tidak terbuang sia-sia, ayo kita buat planning yang matang. Biasanya orang yang ke "+destination+" itu juga ke:"
-        return reply_text
-
-    if user_message.startswith("in"):
-        location = (' '.join(message_split[1:])).capitalize()
-        reply_text = "Ok "+name+", you are from "+location+ ". Where do you want to go? (<b><i>To</i></b> ... )"
-        return reply_text
-
-    if user_message.startswith("to"):
-        destination = (' '.join(message_split[1:])).capitalize()
-        reply_text = "How many people will go to "+destination+"? ( ... <b><i>people</i></b>)"
-        return reply_text
-
-    if user_message.endswith("days"):
-        days = int(user_message.split()[0])
-        reply_text = "Ok <b><i>"+name+"</i></b>, This is what <b>Cony</b> gets from the data that you have entered.\n\nCurrent Location\t: "+location+"\nDestination\t: "+destination+"\nStayed For\t: "+str(days)+" days\nNumber of members\t: "+str(member)+"\n\nCony will find the best recommendation for you:) <b>Wait a minute...</b>"
+        DAYS = int(user_message.split()[0])
+        react = 'Wah cukup singkat ya hanya'
+        if DAYS == 3:
+            react = 'Sepertinya mantap nih liburan di '+DESTINATION+' selama'
+        if DAYS > 3:
+            react = 'Pasti cinta ya sama '+DESTINATION+'? soalnya cukup lama loh'
+        reply_text = react+" <b>"+str(DAYS)+" hari</b>.\n\nOky! sekarang Chavel akan bantu kamu nih untuk membuat planning liburan selama di "+DESTINATION+", jadi biar waktumu tidak terbuang sia-sia. Are you ready?"
         return reply_text
     else:
-        reply_text = "I'm Sorry, I don't know what you mean "+name+" :cry:\nYou can click this word <b><i>/help</i></b>."
-        return reply_text
+        reply_text = "I'm Sorry, I don't know what you mean "+NAME+" :cry:\nYou can click this word <b><i>/help</i></b>."
+        return
+
+
+def get_sqrt(x):
+  return math.sqrt(x)
+
+
+def shortest_path(df, current_location, place_type):
+  df_x = df.copy()
+  df_x['distance'] = abs(df_x.latitude**2-float(df_x.loc[df_x.place_name == current_location, 'latitude']**2))+abs(df_x.longitude**2-float(df_x.loc[df_x.place_name == current_location, 'longitude']**2))
+  df_x['distance'] = df_x['distance'].apply(get_sqrt)
+  df_x = df_x[df_x['type'] == place_type]
+  df_x = df_x.sort_values('distance')
+  list_place = df_x['place_name'].values
+  return list_place[:5]

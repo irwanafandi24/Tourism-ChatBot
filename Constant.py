@@ -1,1 +1,5 @@
-API_KEY = '1642947759:AAFeFEIKsNN0HStNt5rNQ5Pb8s6mdZt_DiY'
+import pandas as pd
+
+API_KEY = '1765264036:AAF-eZtgLOdiv-Fn7L8AcxlUd-Zwd6icFbI'
+TOURISM_DATA = pd.read_csv("data/data.csv")
+DATA_FILTER = ''
