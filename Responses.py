@@ -1,13 +1,13 @@
 import re
 import math
 import Constant as keys
-NAME, DESTINATION, DAYS, CURRENT_DAYS, CURRENT_LOCATION, TMP_LOCATION, TMP_PRICE = '', '', 0, 1, '', '', 0
+NAME, DESTINATION, DAYS, CURRENT_DAYS, CURRENT_LOCATION, TMP_LOCATION, TMP_PRICE, GET_TYPE = '', '', 0, 1, '', '', 0, ''
 SAVE_DEST, SAVE_RESTO, SAVE_HOTEL, TOTAL_PRICE = [], [], [], []
 
 df = keys.TOURISM_DATA
 
 def message_response(input_text):
-    global NAME, DESTINATION, DAYS, CURRENT_LOCATION, SAVE_DEST, SAVE_RESTO, SAVE_HOTEL
+    global NAME, DESTINATION, DAYS, CURRENT_DAYS, CURRENT_LOCATION, TMP_LOCATION, TMP_PRICE, GET_TYPE, SAVE_DEST, SAVE_RESTO, SAVE_HOTEL, TOTAL_PRICE
 
     user_message = str(input_text).lower()
     message_split = re.split("[' ]", user_message)
@@ -21,10 +21,10 @@ def message_response(input_text):
         DAYS = int(user_message.split()[0])
         react = 'Wah cukup singkat ya hanya'
         if DAYS == 3:
-            react = 'Sepertinya mantap nih liburan di '+DESTINATION+' selama'
+            react = 'Sepertinya mantap nih liburan di '+DESTINATION.title()+' selama'
         if DAYS > 3:
-            react = 'Pasti cinta ya sama '+DESTINATION+'? soalnya cukup lama loh'
-        reply_text = react+" <b>"+str(DAYS)+" hari</b>.\n\nOky! sekarang Chavel akan bantu kamu nih untuk membuat planning liburan selama di "+DESTINATION+", jadi biar waktumu tidak terbuang sia-sia. Are you ready?"
+            react = 'Pasti cinta ya sama '+DESTINATION.title()+'? soalnya cukup lama loh'
+        reply_text = react+" <b>"+str(DAYS)+" hari</b>.\n\nOky! sekarang Chavel akan bantu kamu nih untuk membuat planning liburan selama di <b>"+DESTINATION.title()+"</b>, jadi biar waktumu tidak terbuang sia-sia. Are you ready?"
         return reply_text
     else:
         reply_text = "I'm Sorry, I don't know what you mean "+NAME+" :cry:\nYou can click this word <b><i>/help</i></b>."

@@ -1,39 +1,39 @@
-destination,type,place_name,price,flag,info,address,time,latitude,longitude,image_url
-bali,place,pantai tanah lot,1000,1,Pantai Tanah Lot adalah pantai yang indah dan tidak seperti pantai indah kapuk,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.61967,115.087,https://wisatapro.com/wp-content/uploads/2020/02/nusa-dua-bali.jpg
-bali,place,pantai nusa dua,2000,1,Pantai Nusa Dua yang berarti bukan nusa tiga dan tidak ada di Jakarta. Apa loe kata,Jl. Berlikaliku,08.00-21.00,-8.79571,115.23279,https://4.bp.blogspot.com/-O6hfLbqECPk/WBrShm7vblI/AAAAAAAAAJ4/k9Z4Qfpm7zQUpfHOfch_65BFmxjWerSPACLcB/s1600/ritual-Odolan-di-Tanah-Lot.jpg
-bali,place,pantai pandawa,3000,0,bali3,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.42875,115.85738,https://3.bp.blogspot.com/-Ea5Sq-Eryas/VWHQYFsIw5I/AAAAAAAABVs/dYLq2EU2B-U/s1600/Pantai%2BPandawa%2BBali%2B%2B%25285%2529.jpg
-bali,place,air terjun yeh mampeh,4000,0,bali4,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.1111,115.46574,https://backpackerjakarta.com/wp-content/uploads/2017/03/yeh-mampeh-waterfall.jpg
-bali,place,kroya waterfall,5000,0,bali5,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.16789,115.67457,https://wishingonawaterfall.com/wp-content/uploads/2018/10/Kroya-Waterfall-Bali-2-e1540133437580-scaled.jpg
-bali,place,danau batur kintamani,6000,1,bali6,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-9.12388,115.12345,https://tempatwisatadibali.info/wp-content/uploads/2017/12/Pura-Ulun-Danu-Batur-Kintamani-Bali.jpg
-bali,place,danau bratan bedugul,7000,1,bali7,Jl. Berlikaliku,08.00-21.00,-9.35474,115.35434,https://besthqwallpapers.com/Uploads/11-5-2018/52191/thumb2-pura-ulun-danu-bratan-temple-hindu-temple-sunset-lake-bali.jpg
-bali,place,danau buyan buleleng,8000,0,bali8,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.55356,115.24234,https://image.shutterstock.com/image-photo/view-buyan-lake-danau-top-260nw-1290299854.jpg
-bali,place,campuhan ubud,9000,0,bali9,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.68364,115.22234,https://wisatapro.com/wp-content/uploads/2020/02/nusa-dua-bali.jpg
-bali,place,bukit pinggan kintamani,10000,0,bali10,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.98357,115.17546,https://4.bp.blogspot.com/-O6hfLbqECPk/WBrShm7vblI/AAAAAAAAAJ4/k9Z4Qfpm7zQUpfHOfch_65BFmxjWerSPACLcB/s1600/ritual-Odolan-di-Tanah-Lot.jpg
-bali,place,museum geopark batur,11000,1,bali11,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.23448,115.82735,https://3.bp.blogspot.com/-Ea5Sq-Eryas/VWHQYFsIw5I/AAAAAAAABVs/dYLq2EU2B-U/s1600/Pantai%2BPandawa%2BBali%2B%2B%25285%2529.jpg
-bali,place,museum topeng setia darma,12000,0,bali12,Jl. Berlikaliku,08.00-21.00,-8.67163,115.43267,https://backpackerjakarta.com/wp-content/uploads/2017/03/yeh-mampeh-waterfall.jpg
-bali,hotel,levana ,13000,0,bali13,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-9.37459,115.23546,https://ecs7.tokopedia.net/img/cache/300/VqbcmM/2020/11/10/ce009596-7fbd-4853-9520-39db5d4754eb.jpg
-bali,hotel,mandagiri batur,14000,0,bali14,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-9.52385,115.23477,https://hi-cdn.t-rp.co.uk/images/hotels/119182/0?width=870&height=480&crop=false
-bali,hotel,sri sultan datu,15000,0,bali15,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-9.34653,115.23467,https://www.themulia.com/getmedia/779d0eb5-fd4f-498f-8575-599039237b72/Ladies-Courtyard.jpg/?width=1200&height=630&ext=.jpg&maxsidesize=750
-bali,resto,seruni kambing guling,16000,0,bali16,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.71625,115.86273,https://ads1.melia.com/dam/jcr:ffd7ea05-1170-47a8-89b6-7a9dda58d5b4/123SolBenoaBali-Sol%20Family%20Suite%20Balcony.jpg
-bali,resto,gilawang,17000,0,bali17,Jl. Berlikaliku,08.00-21.00,-8.82946,115.93243,https://ads1.melia.com/dam/jcr:deb4c883-1232-4e6b-8a29-2c1e0c20fb70/210SolBenoaBali-Menega%20Restaurant%20Morning%20View.jpg
-bali,resto,sawah padang,18000,0,bali18,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.47561,115.12423,https://ads1.melia.com/dam/jcr:d6054e7f-0706-4a60-9230-81197dc8cffa/202SolBeachHouseBaliBenoa-El_Patio_Restaurant_Terrace.jpg
-bali,resto,mokalate,16000,0,bali16,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.35625,115.39273,https://ads1.melia.com/dam/jcr:ffd7ea05-1170-47a8-89b6-7a9dda58d5b4/123SolBenoaBali-Sol%20Family%20Suite%20Balcony.jpg
-bali,resto,miawmiaw,17000,0,bali17,Jl. Berlikaliku,08.00-21.00,-9.82946,115.9943,https://ads1.melia.com/dam/jcr:deb4c883-1232-4e6b-8a29-2c1e0c20fb70/210SolBenoaBali-Menega%20Restaurant%20Morning%20View.jpg
-bali,resto,sri rezeky,18000,0,bali18,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-9.47561,116.12423,https://ads1.melia.com/dam/jcr:d6054e7f-0706-4a60-9230-81197dc8cffa/202SolBeachHouseBaliBenoa-El_Patio_Restaurant_Terrace.jpg
-bali,resto,mewah bali,17000,0,bali17,Jl. Berlikaliku,08.00-21.00,-9.82946,116.93243,https://ads1.melia.com/dam/jcr:deb4c883-1232-4e6b-8a29-2c1e0c20fb70/210SolBenoaBali-Menega%20Restaurant%20Morning%20View.jpg
-bali,resto,dahar sadayana,18000,0,bali18,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-9.67561,116.12423,https://ads1.melia.com/dam/jcr:d6054e7f-0706-4a60-9230-81197dc8cffa/202SolBeachHouseBaliBenoa-El_Patio_Restaurant_Terrace.jpg
-bali,hotel,manyar asri,300000,0,bali16,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.71625,115.86273,https://ads1.melia.com/dam/jcr:ffd7ea05-1170-47a8-89b6-7a9dda58d5b4/123SolBenoaBali-Sol%20Family%20Suite%20Balcony.jpg
-bali,hotel,kembalipulang,450000,0,bali17,Jl. Berlikaliku,08.00-21.00,-8.82946,115.93243,https://ads1.melia.com/dam/jcr:deb4c883-1232-4e6b-8a29-2c1e0c20fb70/210SolBenoaBali-Menega%20Restaurant%20Morning%20View.jpg
-,,,,,,,,,,
-,,,,,,,,,,
-destination,"Ini tempatny a, misalkan bali, jogja, labuan bajo",,,,,,,,,
-type,"setiap daerah punya 3 jenis: place, hotel, resto",,,,,,,,,
-Place_name,Nama tempatnya,,,,,,,,,
-Flag,"Ini kasiha 1 untuk tempat yang paling direkomendasikan di tempat itu (Misalkan di bali 5 tempat rekomendasi itu ada kuta, tanjung benoa, pulau ulun dalu, danau batur, dan bedugul)",,,,,,,,,
-Price ,"Sebenarnya ini bisa harga tiket, harga sewa hotel atau harga menu makanan tertentu",,,,,,,,,
-Info,Ini informasi seputar tempatnya. Gak usah banyak-banyak najma yang penting menarik dan enak dibaca. Bisa ngarang sendiri juga,,,,,,,,,
-image_url,"Di google image itu bisa klik kanan, terus save image location. Usahakan ukuran pixel gambarnya jangan sampek ribuan ya. Soalnya biar loadnya cepet. Aku kalau searching ""Kuta size 300x300 pixcel""",,,,,,,,,
-,,,,,,,,,,
-Cari info untuk 2 tempat saja: Bali sama Labuan bajo. Dibali usahakan 15 tempat wisata 10 hotel dan 10 tempat makan. Terus tempatnya jangan 1 lokasi ya. Kalau bisa kepisah-pisah biar distancenya kelihatan,,,,,,,,,,
-"Cari Labuan bajo. Ini kasih dikit aja, cuman buat dummy data. 5 semua paling",,,,,,,,,,
-"Note: destination, type dan place_name wajib lower case  ya",,,,,,,,,,
+destination,type,place_name,price,flag,info,address,time,latitude,longitude,image_url,no_chse,no_telp
+bali,place,pantai tanah lot,1000,1,Pantai Tanah Lot adalah pantai yang indah dan tidak seperti pantai indah kapuk,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.61967,115.087,https://wisatapro.com/wp-content/uploads/2020/02/nusa-dua-bali.jpg,CHSE01,81235657890
+bali,place,pantai nusa dua,2000,1,Pantai Nusa Dua yang berarti bukan nusa tiga dan tidak ada di Jakarta. Apa loe kata,Jl. Berlikaliku,08.00-21.00,-8.79571,115.23279,https://4.bp.blogspot.com/-O6hfLbqECPk/WBrShm7vblI/AAAAAAAAAJ4/k9Z4Qfpm7zQUpfHOfch_65BFmxjWerSPACLcB/s1600/ritual-Odolan-di-Tanah-Lot.jpg,CHSE02,81235657891
+bali,place,pantai pandawa,3000,0,bali3,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.42875,115.85738,https://3.bp.blogspot.com/-Ea5Sq-Eryas/VWHQYFsIw5I/AAAAAAAABVs/dYLq2EU2B-U/s1600/Pantai%2BPandawa%2BBali%2B%2B%25285%2529.jpg,CHSE03,81235657892
+bali,place,air terjun yeh mampeh,4000,0,bali4,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.1111,115.46574,https://backpackerjakarta.com/wp-content/uploads/2017/03/yeh-mampeh-waterfall.jpg,CHSE04,81235657893
+bali,place,kroya waterfall,5000,0,bali5,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.16789,115.67457,https://wishingonawaterfall.com/wp-content/uploads/2018/10/Kroya-Waterfall-Bali-2-e1540133437580-scaled.jpg,CHSE05,81235657894
+bali,place,danau batur kintamani,6000,1,bali6,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-9.12388,115.12345,https://tempatwisatadibali.info/wp-content/uploads/2017/12/Pura-Ulun-Danu-Batur-Kintamani-Bali.jpg,CHSE06,81235657895
+bali,place,danau bratan bedugul,7000,1,bali7,Jl. Berlikaliku,08.00-21.00,-9.35474,115.35434,https://besthqwallpapers.com/Uploads/11-5-2018/52191/thumb2-pura-ulun-danu-bratan-temple-hindu-temple-sunset-lake-bali.jpg,CHSE07,81235657896
+bali,place,danau buyan buleleng,8000,0,bali8,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.55356,115.24234,https://image.shutterstock.com/image-photo/view-buyan-lake-danau-top-260nw-1290299854.jpg,CHSE08,81235657897
+bali,place,campuhan ubud,9000,0,bali9,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.68364,115.22234,https://wisatapro.com/wp-content/uploads/2020/02/nusa-dua-bali.jpg,CHSE09,81235657898
+bali,place,bukit pinggan kintamani,10000,0,bali10,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.98357,115.17546,https://4.bp.blogspot.com/-O6hfLbqECPk/WBrShm7vblI/AAAAAAAAAJ4/k9Z4Qfpm7zQUpfHOfch_65BFmxjWerSPACLcB/s1600/ritual-Odolan-di-Tanah-Lot.jpg,CHSE10,81235657899
+bali,place,museum geopark batur,11000,1,bali11,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.23448,115.82735,https://3.bp.blogspot.com/-Ea5Sq-Eryas/VWHQYFsIw5I/AAAAAAAABVs/dYLq2EU2B-U/s1600/Pantai%2BPandawa%2BBali%2B%2B%25285%2529.jpg,CHSE11,81235657900
+bali,place,museum topeng setia darma,12000,0,bali12,Jl. Berlikaliku,08.00-21.00,-8.67163,115.43267,https://backpackerjakarta.com/wp-content/uploads/2017/03/yeh-mampeh-waterfall.jpg,CHSE12,81235657901
+bali,hotel,levana,13000,0,bali13,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-9.37459,115.23546,https://ecs7.tokopedia.net/img/cache/300/VqbcmM/2020/11/10/ce009596-7fbd-4853-9520-39db5d4754eb.jpg,CHSE13,81235657902
+bali,hotel,mandagiri batur,14000,0,bali14,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-9.52385,115.23477,https://hi-cdn.t-rp.co.uk/images/hotels/119182/0?width=870&height=480&crop=false,CHSE14,81235657903
+bali,hotel,sri sultan datu,15000,0,bali15,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-9.34653,115.23467,https://www.themulia.com/getmedia/779d0eb5-fd4f-498f-8575-599039237b72/Ladies-Courtyard.jpg/?width=1200&height=630&ext=.jpg&maxsidesize=750,CHSE15,81235657904
+bali,resto,nikita matana,16000,0,bali16,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.71625,115.86273,https://ads1.melia.com/dam/jcr:ffd7ea05-1170-47a8-89b6-7a9dda58d5b4/123SolBenoaBali-Sol%20Family%20Suite%20Balcony.jpg,CHSE16,81235657905
+bali,resto,gilawang,17000,0,bali17,Jl. Berlikaliku,08.00-21.00,-8.82946,115.93243,https://ads1.melia.com/dam/jcr:deb4c883-1232-4e6b-8a29-2c1e0c20fb70/210SolBenoaBali-Menega%20Restaurant%20Morning%20View.jpg,CHSE17,81235657906
+bali,resto,sawah padang,18000,0,bali18,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.47561,115.12423,https://ads1.melia.com/dam/jcr:d6054e7f-0706-4a60-9230-81197dc8cffa/202SolBeachHouseBaliBenoa-El_Patio_Restaurant_Terrace.jpg,CHSE18,81235657907
+bali,resto,mokalate,16000,0,bali16,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.35625,115.39273,https://ads1.melia.com/dam/jcr:deb4c883-1232-4e6b-8a29-2c1e0c20fb70/210SolBenoaBali-Menega%20Restaurant%20Morning%20View.jpg,CHSE19,81235657908
+bali,resto,miawmiaw,17000,0,bali17,Jl. Berlikaliku,08.00-21.00,-9.82946,115.9943,https://ads1.melia.com/dam/jcr:deb4c883-1232-4e6b-8a29-2c1e0c20fb70/210SolBenoaBali-Menega%20Restaurant%20Morning%20View.jpg,CHSE20,81235657909
+bali,resto,sri rezeky,18000,0,bali18,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-9.47561,116.12423,https://ads1.melia.com/dam/jcr:d6054e7f-0706-4a60-9230-81197dc8cffa/202SolBeachHouseBaliBenoa-El_Patio_Restaurant_Terrace.jpg,CHSE21,81235657910
+bali,resto,mewah bali,17000,0,bali17,Jl. Berlikaliku,08.00-21.00,-9.82946,116.93243,https://ads1.melia.com/dam/jcr:deb4c883-1232-4e6b-8a29-2c1e0c20fb70/210SolBenoaBali-Menega%20Restaurant%20Morning%20View.jpg,CHSE22,81235657911
+bali,resto,dahar sadayana,18000,0,bali18,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-9.67561,116.12423,https://ads1.melia.com/dam/jcr:d6054e7f-0706-4a60-9230-81197dc8cffa/202SolBeachHouseBaliBenoa-El_Patio_Restaurant_Terrace.jpg,CHSE23,81235657912
+bali,hotel,manyar asri,300000,0,bali16,Jl. Maju Mundur Sejahtera,10.00 - 16.00,-8.71625,115.86273,https://ads1.melia.com/dam/jcr:ffd7ea05-1170-47a8-89b6-7a9dda58d5b4/123SolBenoaBali-Sol%20Family%20Suite%20Balcony.jpg,CHSE24,81235657913
+bali,hotel,kembalipulang,450000,0,bali17,Jl. Berlikaliku,08.00-21.00,-8.82946,115.93243,https://ads1.melia.com/dam/jcr:deb4c883-1232-4e6b-8a29-2c1e0c20fb70/210SolBenoaBali-Menega%20Restaurant%20Morning%20View.jpg,CHSE25,81235657914
+,,,,,,,,,,,,
+,,,,,,,,,,,,
+destination,"Ini tempatny a, misalkan bali, jogja, labuan bajo",,,,,,,,,,,
+type,"setiap daerah punya 3 jenis: place, hotel, resto",,,,,,,,,,,
+Place_name,Nama tempatnya,,,,,,,,,,,
+Flag,"Ini kasiha 1 untuk tempat yang paling direkomendasikan di tempat itu (Misalkan di bali 5 tempat rekomendasi itu ada kuta, tanjung benoa, pulau ulun dalu, danau batur, dan bedugul)",,,,,,,,,,,
+Price ,"Sebenarnya ini bisa harga tiket, harga sewa hotel atau harga menu makanan tertentu",,,,,,,,,,,
+Info,Ini informasi seputar tempatnya. Gak usah banyak-banyak najma yang penting menarik dan enak dibaca. Bisa ngarang sendiri juga,,,,,,,,,,,
+image_url,"Di google image itu bisa klik kanan, terus save image location. Usahakan ukuran pixel gambarnya jangan sampek ribuan ya. Soalnya biar loadnya cepet. Aku kalau searching ""Kuta size 300x300 pixcel""",,,,,,,,,,,
+,,,,,,,,,,,,
+Cari info untuk 2 tempat saja: Bali sama Labuan bajo. Dibali usahakan 15 tempat wisata 10 hotel dan 10 tempat makan. Terus tempatnya jangan 1 lokasi ya. Kalau bisa kepisah-pisah biar distancenya kelihatan,,,,,,,,,,,,
+"Cari Labuan bajo. Ini kasih dikit aja, cuman buat dummy data. 5 semua paling",,,,,,,,,,,,
+"Note: destination, type dan place_name wajib lower case  ya",,,,,,,,,,,,

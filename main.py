@@ -27,7 +27,7 @@ def help_command(update:Update, context:CallbackContext):
     )
 
 
-def handle_message(update:Update, context:CallbackContext):
+def handle_message(update: Update, context: CallbackContext):
     text = str(update.message.text).lower()
     print(text)
     response = R.message_response(text)
@@ -60,7 +60,7 @@ def handle_message(update:Update, context:CallbackContext):
                                  reply_markup=menu_markup, parse_mode=ParseMode.HTML)
 
     elif text == "yes, i'm ready":
-        response = "Dihari <b>ke-"+str(R.CURRENT_DAYS)+"</b> Chavel punya rekomendasi tempat-tempat di "+R.DESTINATION+" yang paling sering dikunjungi wisatawan. Kira-kira kamu mau pergi kemana dulu?"
+        response = "Dihari <b>ke-"+str(R.CURRENT_DAYS)+"</b> Chavel punya rekomendasi tempat-tempat di <b>"+R.DESTINATION.title()+"</b> yang paling sering dikunjungi wisatawan. Kira-kira kamu mau pergi kemana dulu?"
         menu_keyboard = []
         for destination in keys.DATA_FILTER.loc[keys.DATA_FILTER['flag'] == 1, 'place_name'].values:
             tmp = []
@@ -76,48 +76,63 @@ def handle_message(update:Update, context:CallbackContext):
         get_data = keys.DATA_FILTER[keys.DATA_FILTER.place_name == text]
 
         if get_data['type'].values[0] == "place":
-            response = get_data['info'].values[0]+". Adapun detail dari tempat wisata tersebut: \n\n<b>Open</b>: "+get_data['time'].values[0]+"\n<b>Price</b>: Rp "+str(int(get_data['price'].values[0]))+"\n<b>Address</b>: "+get_data['address'].values[0]+"\n\nApakah anda tertarik mengunjungi destinasi tersebut?"
-
-            menu_keyboard = [['Save Destination'], ['Lihat Destinasi Lain']]
+            response = get_data['info'].values[0]+". Adapun detail dari tempat wisata tersebut: \n\n<b>Open</b> : " +get_data['time'].values[0] + "\n<b>Price</b> : Rp "+str(int(get_data['price'].values[0]))+" / orang\n<b>Telpon</b> : (+62) "+str(get_data['no_telp'].values[0])+"\n<b>Address</b> : "+get_data['address'].values[0]+"\n<b>No. CHSE</b> : "+get_data['no_chse'].values[0]+"\n\nApakah anda tertarik mengunjungi destinasi tersebut?"
+            menu_keyboard = [['Save Destination'], ['Lihat Lainnya']]
             menu_markup = ReplyKeyboardMarkup(menu_keyboard, one_time_keyboard=True, resize_keyboard=True)
         elif get_data['type'].values[0] == "resto":
-            response = get_data['info'].values[0] + ". Adapun detail dari Restaurant ini adalah: \n\n<b>Open</b>: " +get_data['time'].values[0] + "\n<b>Price</b>: Rp " + str(int(get_data['price'].values[0])) + "\n<b>Address</b>: " + get_data['address'].values[0] + "\n\nApakah anda tertarik untuk makan disini?"
-
-            menu_keyboard = [['Save Restaurant'], ['Lihat Restaurant Lain']]
+            response = get_data['info'].values[0] + ". Adapun detail dari Restaurant ini adalah: \n\n<b>Open</b> : " +get_data['time'].values[0] + "\n<b>Price</b> : Rp " + str(int(get_data['price'].values[0])) + " / porsi\n<b>Telpon</b> : (+62) "+str(get_data['no_telp'].values[0])+"\n<b>Address</b> : " + get_data['address'].values[0] + "\n<b>No. CHSE</b> : "+get_data['no_chse'].values[0]+"\n\nApakah anda tertarik untuk makan disini?"
+            menu_keyboard = [['Save Restaurant'], ['Lihat Lainnya']]
             menu_markup = ReplyKeyboardMarkup(menu_keyboard, one_time_keyboard=True, resize_keyboard=True)
         elif get_data['type'].values[0] == "hotel":
-            response = get_data['info'].values[0] + ". Berikut ini detail dari hotel tersebut: \n\n<b>Open</b>: " +get_data['time'].values[0] + "\n<b>Price</b>: Rp " + str(int(get_data['price'].values[0])) + "\n<b>Address</b>: " + get_data['address'].values[0] + "\n\nApakah anda tertarik menginap di hotel tersebut?"
-
-            menu_keyboard = [['Save Hotel'], ['Lihat Hotel Lain']]
+            response = get_data['info'].values[0] + ". Berikut ini detail dari hotel tersebut: \n\n<b>Open</b> : " +get_data['time'].values[0] + "\n<b>Price</b> : Rp " + str(int(get_data['price'].values[0])) + " / malam\n<b>Telpon</b> : (+62) "+str(get_data['no_telp'].values[0])+"\n<b>Address</b> : " + get_data['address'].values[0] + "\n<b>No. CHSE</b> : "+get_data['no_chse'].values[0]+"\n\nApakah anda tertarik menginap di hotel tersebut?"
+            menu_keyboard = [['Save Hotel'], ['Lihat Lainnya']]
             menu_markup = ReplyKeyboardMarkup(menu_keyboard, one_time_keyboard=True, resize_keyboard=True)
 
+        R.GET_TYPE = get_data['type'].values[0]
         R.TMP_LOCATION = text
         R.TMP_PRICE = int(get_data['price'].values[0])
         context.bot.send_photo(chat_id=update.effective_chat.id, photo=get_data.image_url.values[0], caption=response,
                                reply_markup=menu_markup, parse_mode=ParseMode.HTML)
 
-    elif text == "lihat destinasi lain":
-        if R.CURRENT_DAYS == 1:
-            response = "Dihari ke-" + str(R.CURRENT_DAYS) + ", Chavel hanya punya rekomenda tempat-temapt di bawah ini. Kira-kira kamu mau pergi kemana dulu?"
+    elif text == "lihat lainnya":
+        if R.GET_TYPE == "place":
+            if R.CURRENT_DAYS == 1:
+                menu_keyboard = []
+                for destination in keys.DATA_FILTER.loc[keys.DATA_FILTER['flag'] == 1, 'place_name'].values:
+                    tmp = []
+                    tmp.append(destination.title())
+                    menu_keyboard.append(tmp)
+            else:
+                place_recommendation = R.shortest_path(keys.DATA_FILTER, R.CURRENT_LOCATION, 'place')
+                menu_keyboard = []
+                for place in place_recommendation:
+                    if place not in R.SAVE_DEST:
+                        tmp = []
+                        tmp.append(place.title())
+                        menu_keyboard.append(tmp)
+            response = "<b>Dihari ke-" + str(R.CURRENT_DAYS) + "</b>, Chavel hanya punya rekomenda tempat-temapt di bawah ini. Kira-kira kamu mau pergi kemana dulu?"
+
+        elif R.GET_TYPE == "resto":
+            resto_recommendation = R.shortest_path(keys.DATA_FILTER, R.CURRENT_LOCATION, 'resto')
             menu_keyboard = []
-            for destination in keys.DATA_FILTER.loc[keys.DATA_FILTER['flag'] == 1, 'place_name'].values:
-                tmp = []
-                tmp.append(destination.title())
-                menu_keyboard.append(tmp)
+            for resto in resto_recommendation:
+                if resto not in R.SAVE_RESTO:
+                    tmp = []
+                    tmp.append(resto.title())
+                    menu_keyboard.append(tmp)
+            response = "Belum cocok dengan restaurant sebelumnya ya? Rekomendasi Chavel untuk <b><i>restaurant yang paling dekat</i></b> dengan <b>"+R.CURRENT_LOCATION.title()+"</b> antara lain:"
 
-            menu_markup = ReplyKeyboardMarkup(menu_keyboard, one_time_keyboard=True, resize_keyboard=True)
-            context.bot.send_message(chat_id=update.effective_chat.id, text=response,
-                                     reply_markup=menu_markup, parse_mode=ParseMode.HTML)
+        elif R.GET_TYPE == "hotel":
+            hotel_recommendation = R.shortest_path(keys.DATA_FILTER, R.CURRENT_LOCATION, 'hotel')
+            menu_keyboard = []
+            for hotel in hotel_recommendation:
+                if hotel not in R.SAVE_HOTEL:
+                    tmp = []
+                    tmp.append(hotel.title())
+                    menu_keyboard.append(tmp)
 
-    elif text == "lihat restaurant lain":
-        resto_recommendation = R.shortest_path(keys.DATA_FILTER, R.CURRENT_LOCATION, 'resto')
-        menu_keyboard = []
-        for resto in resto_recommendation:
-            if resto not in R.SAVE_RESTO:
-                tmp = []
-                tmp.append(resto.title())
-                menu_keyboard.append(tmp)
-        response = "Belum cocok dengan restaurant sebelumnya ya? Rekomendasi Chavel untuk restaurant yang paling dekat dengan "+R.CURRENT_LOCATION+" antara lain:"
+            response = "Belum cocok dengan hotel sebelumnya ya? Rekomendasi Chavel untuk hotel yang paling dekat dengan <b>" + R.CURRENT_LOCATION.title()+ "</b> antara lain:"
+
         menu_markup = ReplyKeyboardMarkup(menu_keyboard, one_time_keyboard=True, resize_keyboard=True)
         context.bot.send_message(chat_id=update.effective_chat.id, text=response,
                                  reply_markup=menu_markup, parse_mode=ParseMode.HTML)
@@ -128,9 +143,9 @@ def handle_message(update:Update, context:CallbackContext):
         R.TOTAL_PRICE.append(R.TMP_PRICE)
 
         response_choice = [
-            "Setelah capek bermain dan jalan-jalan di <b>"+R.CURRENT_LOCATION.title()+"</b> Yuk isi tenaga dulu. Berikut tempat rekomendasi yang paling dekat dengan lokasi anda sekarang:",
-            "Lama bermain perut pasti keroncongan, yuk makan dulu. Lokasinya gak jauh kok, mana pilihanmu?",
-            "Habis bersenang-senang di <b>"+R.CURRENT_LOCATION.title()+"</b> tidak lengkap rasanya kalau belum makan di daerah sana juga. Yuk pilih tempat makan seleramu: "
+            "Setelah capek bermain dan jalan-jalan di <b>"+R.CURRENT_LOCATION.title()+"</b> Yuk isi tenaga dulu. Berikut <b><i>rekomendasi restaurant</i></b> yang paling dekat dengan lokasi anda sekarang:",
+            "Lama bermain perut pasti keroncongan, yuk makan dulu. Lokasinya <b><i>restaurannya tidak jauh</i></b> kok, mana pilihanmu?",
+            "Habis bersenang-senang di <b>"+R.CURRENT_LOCATION.title()+"</b> tidak lengkap rasanya kalau belum makan di daerah sana juga. Yuk pilih <b><i>rekomendasi restaurant</i></b> yang sesuai dengan seleramu: "
         ]
 
         resto_recommendation = R.shortest_path(keys.DATA_FILTER, R.CURRENT_LOCATION, 'resto')
@@ -146,28 +161,66 @@ def handle_message(update:Update, context:CallbackContext):
                                  reply_markup=menu_markup, parse_mode=ParseMode.HTML)
 
     elif text == "save restaurant":
-        R.SAVE_HOTEL.append(R.TMP_LOCATION)
+        R.SAVE_RESTO.append(R.TMP_LOCATION)
         R.CURRENT_LOCATION = R.TMP_LOCATION
         R.TOTAL_PRICE.append(R.TMP_PRICE)
 
         response_choice = [
-            "Untuk hari ke-"+str(R.CURRENT_DAYS)+" ini kamu ingin menginap dimana?",
-            "Hari ini pasti kamu capek dan ingin istirahat kan. Nah kira-kira ingin bermalam dimana nih?"
+            "Untuk liburan <b><i>hari ke-"+str(R.CURRENT_DAYS)+"</i></b> ini kamu ingin menginap dimana? Lokasinya tidak terlalu jauh kok dari <b><i>"+R.CURRENT_LOCATION.title()+"</i></b>.",
+            "Setelah seharian jalan-jalan <b>dihari ke-"+str(R.CURRENT_DAYS)+"</b> ini, pasti kamu capek dan ingin istirahat kan? Nah Chavel punya <b><i>rekomendasi hotel terdekat</i></b> nih dari <b><i>"+R.CURRENT_LOCATION.title()+"</i></b>, kira-kira ingin menginap dimana?"
         ]
 
         hotel_recommendation = R.shortest_path(keys.DATA_FILTER, R.CURRENT_LOCATION, 'hotel')
         menu_keyboard = []
         for hotel in hotel_recommendation:
-            if hotel not in R.SAVE_RESTO:
+            if hotel not in R.SAVE_HOTEL:
                 tmp = []
                 tmp.append(hotel.title())
                 menu_keyboard.append(tmp)
 
         menu_markup = ReplyKeyboardMarkup(menu_keyboard, one_time_keyboard=True, resize_keyboard=True)
-        context.bot.send_message(chat_id=update.effective_chat.id, text=response_choice[randint(0,1)],
+        context.bot.send_message(chat_id=update.effective_chat.id, text=response_choice[randint(0, 1)],
                                  reply_markup=menu_markup, parse_mode=ParseMode.HTML)
 
+    elif text == "save hotel":
+        R.SAVE_HOTEL.append(R.TMP_LOCATION)
+        R.CURRENT_LOCATION = R.TMP_LOCATION
+        R.TOTAL_PRICE.append(R.TMP_PRICE)
+        R.CURRENT_DAYS +=1
 
+        response_choice = [
+            "Yay, ini <b><i>hari ke-"+str(R.CURRENT_DAYS)+"</i></b> kamu berada di <b>"+R.DESTINATION.title()+"</b>. \n\nTanpa basa-basi lagi, Chavel akan rekomendasi destinasi tempat wisata yang dekat dengan <b><i>"+R.CURRENT_LOCATION.title()+"</i></b>. Tempat mana nih yang ingin kamu kunjungi?",
+            "<b>Hari ke-"+str(R.CURRENT_DAYS)+"</b> sudah menantimu, sudah siap untuk jalan-jalan lagi di <b>"+R.DESTINATION.title()+"</b>?\n\nRekomendasi destinasi wisata dari Chavel untuk yang paling dekat dari <b><i> "+R.CURRENT_LOCATION.title()+"</i></b> adalah: "
+        ]
+
+        if R.DAYS - R.CURRENT_DAYS != -1:
+            place_recommendation = R.shortest_path(keys.DATA_FILTER, R.CURRENT_LOCATION, 'place')
+            menu_keyboard = []
+            for place in place_recommendation:
+                if place not in R.SAVE_DEST:
+                    tmp = []
+                    tmp.append(place.title())
+                    menu_keyboard.append(tmp)
+
+            menu_markup = ReplyKeyboardMarkup(menu_keyboard, one_time_keyboard=True, resize_keyboard=True)
+            context.bot.send_message(chat_id=update.effective_chat.id, text=response_choice[randint(0,1)],
+                                     reply_markup=menu_markup, parse_mode=ParseMode.HTML)
+        else:
+            url = "https://asset.kompas.com/crops/ev_AV76tE2Q7TcSFohsFjBsYQN0=/0x0:999x666/750x500/data/photo/2020/05/26/5eccc5ee7f998.jpg"
+            response = "Akhirnya selesai ya planning kita <b>" + R.NAME.title() + "</b>! \nBerikut ini <b>Chavel</b> bantu rekap semua destinasi wisata, restaurant dan hotel yang akan kamu kunjungi selama di <b>" + R.DESTINATION.title() + "</b> dalam waktu <b>" + str(R.DAYS) + " hari</b>.\n\n"
+            data = ""
+            for i in range(len(R.SAVE_DEST)):
+                data += "<b>~ Hari ke-" + str(i + 1) + "</b> anda akan ke\n"
+                data += "Destinasi Wisata : " + str(R.SAVE_DEST[i]).title() + "\n"
+                data += "Restaurant           : " + str(R.SAVE_RESTO[i]).title() + "\n"
+                data += "Hotel                      : " + str(R.SAVE_HOTEL[i]).title() + "\n\n"
+            data += "Adapun total pengeluaran yang harus anda bayar dalam trip ini sebesar <b>Rp " + str(sum(R.TOTAL_PRICE)) + "</b>. Tapi ingat, ini belum termasuk biaya transportasi ya, jadi semakin banyak tabunganmu maka akan semakin aman :D\n\nSemoga liburanmu menyenangkan ya <b>" + R.NAME.title() + "</b>\nJangan lupain <b>Chavel</b> ya kalau sudah senang di <b>"+R.DESTINATION.title()+"</b>."
+            response += data
+            menu_keyboard = [['Terimakasih'], ['Boskuh']]
+            menu_markup = ReplyKeyboardMarkup(menu_keyboard, one_time_keyboard=True, resize_keyboard=True)
+
+            context.bot.send_photo(chat_id=update.effective_chat.id, photo=url, caption=response,
+                                   reply_markup=menu_markup, parse_mode=ParseMode.HTML)
     else:
         response = R.message_response(text)
         update.message.reply_text(
@@ -179,11 +232,11 @@ def button_click(update:Update, context:CallbackContext):
     query: CallbackQuery = update.callback_query
     print('Choose Place Option')
     if query.data == 'BALI':
-        R.DESTINATION = 'Bali'
+        R.DESTINATION = 'bali'
         keys.DATA_FILTER = df[df.destination == 'bali']
         url_bali = 'https://www.korinatour.co.id/wp-content/uploads/2018/12/6-300x300.png'
         text_bali = "Saya suka dengan selera anda :D\
-                    \n\nBerkunjung ke <b>Pulaunya para Dewa</b> memang memberikan kesan tersendiri.Kamu akan dimajakan dengan keindahan alam, kuliner dan juga adat istiadatnya. Gak sabar kan? Sabar ya Chavel mau tanya nih, berapa hari kamu akan liburan di Bali? (... <b><i>hari</i></b>)"
+                    \n\nBerkunjung ke <b>Pulaunya Para Dewa</b> memang memberikan kesan tersendiri. Kamu akan dimanjakan dengan keindahan alam, kuliner dan juga adat istiadatnya. Gak sabar kan? Sabar ya Chavel mau tanya nih, berapa hari kamu akan liburan di <b>"+R.DESTINATION.title()+"</b>? (... <b><i>hari</i></b>)"
         context.bot.send_photo(chat_id=update.effective_chat.id, photo=url_bali, caption=text_bali, parse_mode=ParseMode.HTML)
 
     if query.data == 'DNTOBA':
@@ -207,9 +260,6 @@ def main():
 
     dp.add_handler(MessageHandler(Filters.text, handle_message))
     dp.add_handler(CallbackQueryHandler(button_click))
-
-    # if(len(R.SAVE_DEST)==len(R.SAVE_HOTEL)==len(R.SAVE_RESTO)==R.DAYS==R.CURRENT_DAYS):
-    #     print("DONE")
 
     dp.add_error_handler(error)
 
