@@ -14,7 +14,7 @@ def message_response(input_text):
 
     if user_message.startswith("saya"):
         NAME = (' '.join(message_split[1:])).capitalize()
-        reply_text = "Hai "+NAME+"! salam kenal ya.\nSudah tahu mau liburan kemana? Chavel punya rekomendasi nih special buat kamu, <b><i>Mungkin kesini asik</i></b>"
+        reply_text = "Hai <b>"+NAME+"</b>! salam kenal ya.\nSudah tahu mau liburan kemana? Chavel punya rekomendasi nih special buat kamu, <b><i>Mungkin kesini asik</i></b>"
         return reply_text
 
     if user_message.endswith("hari"):

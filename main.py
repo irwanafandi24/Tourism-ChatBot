@@ -15,8 +15,7 @@ def start_command(update:Update, context:CallbackContext):
     context.bot.send_photo(chat_id=update.effective_chat.id, photo=url)
     update.message.reply_text(
         text="Hai..!! <b>welcome to ChavellBot </b>\
-                     \nPanggil saja kami <b><i>Chavel</i></b>, disini kami akan memandu anda untuk keliling Indonesia.\
-                     \nUpss sabar, tak kenal maka tak sayang. Yuk kenalan dulu, siapa namamu..? (<b><i>saya</i></b> ... )",
+                     \nPanggil saja kami <b><i>Chavel</i></b>, disini kami akan memandu anda untuk keliling Indonesia. Upss sabar, tak kenal maka tak sayang. Yuk kenalan dulu, siapa namamu..? (<b><i>saya</i></b> ... )",
         parse_mode=ParseMode.HTML
     )
 
@@ -35,13 +34,12 @@ def handle_message(update: Update, context: CallbackContext):
     if text.startswith("saya") or text == "no, i'm not ready":
         keyboard1 = [[
             InlineKeyboardButton('Bali', callback_data='BALI'),
-            InlineKeyboardButton('Danau Toba', callback_data='DNTOBA'),
-            InlineKeyboardButton('Yogyakarta', callback_data='YGY'),
+            InlineKeyboardButton('NTT', callback_data='NTT'),
+            InlineKeyboardButton('NTB', callback_data='NTB'),
             ],
             [
-            InlineKeyboardButton('Labuan Bajo', callback_data='LABBJO'),
-            InlineKeyboardButton('Likupang', callback_data='LKP'),
-            InlineKeyboardButton('Mandalika', callback_data='MDL')
+            InlineKeyboardButton('Yogyakarta', callback_data='YGY'),
+            InlineKeyboardButton('Sumatera Utara', callback_data='SUMUT')
          ]]
         vocation_markup = InlineKeyboardMarkup(keyboard1, resize_keyboard=True)
 
@@ -76,15 +74,15 @@ def handle_message(update: Update, context: CallbackContext):
         get_data = keys.DATA_FILTER[keys.DATA_FILTER.place_name == text]
 
         if get_data['type'].values[0] == "place":
-            response = get_data['info'].values[0]+". Adapun detail dari tempat wisata tersebut: \n\n<b>Open</b> : " +get_data['time'].values[0] + "\n<b>Price</b> : Rp "+str(int(get_data['price'].values[0]))+" / orang\n<b>Telpon</b> : (+62) "+str(get_data['no_telp'].values[0])+"\n<b>Address</b> : "+get_data['address'].values[0]+"\n<b>No. CHSE</b> : "+get_data['no_chse'].values[0]+"\n\nApakah anda tertarik mengunjungi destinasi tersebut?"
+            response = get_data['info'].values[0]+". Adapun detail dari tempat wisata tersebut: \n\n<b>Open</b> : " +get_data['time'].values[0] + "\n<b>Price</b> : Rp "+str(int(get_data['price'].values[0]))+" / orang\n<b>Telpon</b> : (+62) "+str(int(get_data['no_telp'].values[0]))+"\n<b>Address</b> : "+get_data['address'].values[0]+"\n<b>No. CHSE</b> : "+get_data['no_chse'].values[0]+"\n\nApakah anda tertarik mengunjungi destinasi tersebut?"
             menu_keyboard = [['Save Destination'], ['Lihat Lainnya']]
             menu_markup = ReplyKeyboardMarkup(menu_keyboard, one_time_keyboard=True, resize_keyboard=True)
         elif get_data['type'].values[0] == "resto":
-            response = get_data['info'].values[0] + ". Adapun detail dari Restaurant ini adalah: \n\n<b>Open</b> : " +get_data['time'].values[0] + "\n<b>Price</b> : Rp " + str(int(get_data['price'].values[0])) + " / porsi\n<b>Telpon</b> : (+62) "+str(get_data['no_telp'].values[0])+"\n<b>Address</b> : " + get_data['address'].values[0] + "\n<b>No. CHSE</b> : "+get_data['no_chse'].values[0]+"\n\nApakah anda tertarik untuk makan disini?"
+            response = get_data['info'].values[0] + ". Adapun detail dari Restaurant ini adalah: \n\n<b>Open</b> : " +get_data['time'].values[0] + "\n<b>Price</b> : Rp " + str(int(get_data['price'].values[0])) + " / porsi\n<b>Telpon</b> : (+62) "+str(int(get_data['no_telp'].values[0]))+"\n<b>Address</b> : " + get_data['address'].values[0] + "\n<b>No. CHSE</b> : "+get_data['no_chse'].values[0]+"\n\nApakah anda tertarik untuk makan disini?"
             menu_keyboard = [['Save Restaurant'], ['Lihat Lainnya']]
             menu_markup = ReplyKeyboardMarkup(menu_keyboard, one_time_keyboard=True, resize_keyboard=True)
         elif get_data['type'].values[0] == "hotel":
-            response = get_data['info'].values[0] + ". Berikut ini detail dari hotel tersebut: \n\n<b>Open</b> : " +get_data['time'].values[0] + "\n<b>Price</b> : Rp " + str(int(get_data['price'].values[0])) + " / malam\n<b>Telpon</b> : (+62) "+str(get_data['no_telp'].values[0])+"\n<b>Address</b> : " + get_data['address'].values[0] + "\n<b>No. CHSE</b> : "+get_data['no_chse'].values[0]+"\n\nApakah anda tertarik menginap di hotel tersebut?"
+            response = get_data['info'].values[0] + ". Berikut ini detail dari hotel tersebut: \n\n<b>Open</b> : " +get_data['time'].values[0] + "\n<b>Price</b> : Rp " + str(int(get_data['price'].values[0])) + " / malam\n<b>Telpon</b> : (+62) "+str(int(get_data['no_telp'].values[0]))+"\n<b>Address</b> : " + get_data['address'].values[0] + "\n<b>No. CHSE</b> : "+get_data['no_chse'].values[0]+"\n\nApakah anda tertarik menginap di hotel tersebut?"
             menu_keyboard = [['Save Hotel'], ['Lihat Lainnya']]
             menu_markup = ReplyKeyboardMarkup(menu_keyboard, one_time_keyboard=True, resize_keyboard=True)
 
@@ -211,16 +209,28 @@ def handle_message(update: Update, context: CallbackContext):
             data = ""
             for i in range(len(R.SAVE_DEST)):
                 data += "<b>~ Hari ke-" + str(i + 1) + "</b> anda akan ke\n"
-                data += "Destinasi Wisata : " + str(R.SAVE_DEST[i]).title() + "\n"
-                data += "Restaurant           : " + str(R.SAVE_RESTO[i]).title() + "\n"
-                data += "Hotel                      : " + str(R.SAVE_HOTEL[i]).title() + "\n\n"
+                data += "Destinasi Wisata  : " + str(R.SAVE_DEST[i]).title() + "\n"
+                data += "Restaurant            : " + str(R.SAVE_RESTO[i]).title() + "\n"
+                data += "Hotel                       : " + str(R.SAVE_HOTEL[i]).title() + "\n\n"
             data += "Adapun total pengeluaran yang harus anda bayar dalam trip ini sebesar <b>Rp " + str(sum(R.TOTAL_PRICE)) + "</b>. Tapi ingat, ini belum termasuk biaya transportasi ya, jadi semakin banyak tabunganmu maka akan semakin aman :D\n\nSemoga liburanmu menyenangkan ya <b>" + R.NAME.title() + "</b>\nJangan lupain <b>Chavel</b> ya kalau sudah senang di <b>"+R.DESTINATION.title()+"</b>."
             response += data
-            menu_keyboard = [['Terimakasih'], ['Boskuh']]
+            menu_keyboard = [['Chavel Selalu di Hati'], ['Ah Biasa Aja']]
             menu_markup = ReplyKeyboardMarkup(menu_keyboard, one_time_keyboard=True, resize_keyboard=True)
 
             context.bot.send_photo(chat_id=update.effective_chat.id, photo=url, caption=response,
                                    reply_markup=menu_markup, parse_mode=ParseMode.HTML)
+
+    elif text == "chavel selalu di hati":
+        url = 'https://www.marbellaweddingangels.com/wp-content/uploads/2017/05/love-valentines-day-79@1x.jpg'
+        response = 'Ih... so sweet banget sih kamu <b>'+R.NAME.title()+ '</b>. Nanti kalau butuh bantuan <b>Chavel</b> lagi, bisa langsung hubungi Chavel ya. Jangan sungkan-sungkan...'
+        context.bot.send_photo(chat_id=update.effective_chat.id, photo=url, caption=response,
+                                parse_mode=ParseMode.HTML)
+
+    elif text == "ah biasa aja":
+        url = 'https://image-cdn.medkomtek.com/xpS5VPhzlPT8zMNHuU9b3UihAGo=/1200x675/smart/klikdokter-media-buckets/medias/2310014/original/099939900_1576591774-Tanda-tanda-Anda-sedang-Membesarkan-Anak-Pemarah-Shutterstock_1034366974.jpg'
+        response = 'Jadi <b>Chavel</b> gak selalu di hatinya <b>' + R.NAME.title() + '</b> ya? Yaudah sih, aku ngak akan sedih juga. Tapi kapan-kapan kunjungi Chavel lagi ya.'
+        context.bot.send_photo(chat_id=update.effective_chat.id, photo=url, caption=response,
+                               parse_mode=ParseMode.HTML)
     else:
         response = R.message_response(text)
         update.message.reply_text(
@@ -234,13 +244,40 @@ def button_click(update:Update, context:CallbackContext):
     if query.data == 'BALI':
         R.DESTINATION = 'bali'
         keys.DATA_FILTER = df[df.destination == 'bali']
-        url_bali = 'https://www.korinatour.co.id/wp-content/uploads/2018/12/6-300x300.png'
-        text_bali = "Saya suka dengan selera anda :D\
-                    \n\nBerkunjung ke <b>Pulaunya Para Dewa</b> memang memberikan kesan tersendiri. Kamu akan dimanjakan dengan keindahan alam, kuliner dan juga adat istiadatnya. Gak sabar kan? Sabar ya Chavel mau tanya nih, berapa hari kamu akan liburan di <b>"+R.DESTINATION.title()+"</b>? (... <b><i>hari</i></b>)"
-        context.bot.send_photo(chat_id=update.effective_chat.id, photo=url_bali, caption=text_bali, parse_mode=ParseMode.HTML)
+        url = 'https://www.korinatour.co.id/wp-content/uploads/2018/12/6-300x300.png'
+        text = "<b>~Welcome to Bali~</b>\n\nSaya suka dengan selera anda :D\
+                    \nBerkunjung ke <b>Pulaunya Para Dewa</b> memang memberikan kesan tersendiri. Kamu akan dimanjakan dengan keindahan alam, kuliner dan juga adat istiadatnya. Gak sabar kan? Sabar ya Chavel mau tanya nih, berapa hari kamu akan liburan di <b>"+R.DESTINATION.title()+"</b>? (... <b><i>hari</i></b>)"
 
-    if query.data == 'DNTOBA':
-        print("tobango")
+    elif query.data == 'NTT':
+        R.DESTINATION = 'nusa tenggara timur'
+        keys.DATA_FILTER = df[df.destination == 'nusa tenggara timur']
+        url = 'https://1.bp.blogspot.com/-qvcsqnys-tY/X5x54tckXTI/AAAAAAAACmk/G5s58RPxav8iZ6ZC1oCPm9pE4SurTp7EgCLcBGAsYHQ/w1200-h630-p-k-no-nu/Pulau%2BKomodo%2Bdi%2BNTT.jpg'
+        text = "<b>~Welcome to NTT~</b>\n\nDestinasi yang tepat!\
+                            \nNusa Tenggara Timur yang dinobatkan sebagai destinasi terbaik di dunia akan mengejutkanmu dengan sejuta keindahannya! Pantai yang menyegarkan, adat budaya, dan keindahan laut yang memukau bagaikan surga. Gak sabar kan? Sabar ya Chavel mau tanya nih, berapa hari kamu akan liburan di <b>" + R.DESTINATION.title() + "</b>? (... <b><i>hari</i></b>)"
+
+    elif query.data == 'NTB':
+        R.DESTINATION = 'nusa tenggara barat'
+        keys.DATA_FILTER = df[df.destination == 'nusa tenggara barat']
+        url = 'https://modernclassics.info/great_landscapes/Sameti-Beach.jpg'
+        text = "<b>~Welcome to NTB~</b>\n\nTepat sekali!\
+                            \nTerkenal dengan pantai nya yang begitu eksotis, spot wisata yang sangat indah, dan pemandangan malamnya yang penuh bintang, siapa yang dapat menolak keindahan seperti ini? Nusa Tenggara Barat akan menyambutmu dengan pemandangan dan pengalaman yang mengagumkan! Gak sabar kan? Sabar ya Chavel mau tanya nih, berapa hari kamu akan liburan di <b>" + R.DESTINATION.title() + "</b>? (... <b><i>hari</i></b>)"
+
+    elif query.data == 'YGY':
+        R.DESTINATION = 'yogyakarta'
+        keys.DATA_FILTER = df[df.destination == 'yogyakarta']
+        url = 'https://i.pinimg.com/736x/84/35/a6/8435a64ae7485477840c109390847169.jpg'
+        text = "<b>~Welcome to Yogyakarta~</b>\n\nHemm Menarik!\
+                            \nIni nih destinasi yang sering disebut kota wisata paling menarik di Indonesia! Selalu memberikan kenangan yang indah bagi pengunjungnya. Kota yang kaya akan seni dan sejarah! Gak sabar kan? Sabar ya Chavel mau tanya nih, berapa hari kamu akan liburan di <b>" + R.DESTINATION.title() + "</b>? (... <b><i>hari</i></b>)"
+
+    elif query.data == 'SUMUT':
+        R.DESTINATION = 'sumatera utara'
+        keys.DATA_FILTER = df[df.destination == 'sumatera utara']
+        url = 'https://1.bp.blogspot.com/-Yb33hzlDQu0/XmRdrcjgTCI/AAAAAAAAH3c/ESvmIie09cgUXutFNVv5ClFAEVcqtPpXwCLcBGAsYHQ/s640/toba1.jpeg'
+        text = "<b>~Welcome to Sumatera Utara~</b>\n\nKeren! Destinasi ini memang tidak boleh dipandang sebelah mata.\
+                            \nSumatera Utara dengan berbagai tempat wisatanya yang menyimpan sejuta pesona, apa pun yang kamu cari bisa kamu dapat disana. Masing-masing wisata juga memiliki kisah dan keunikan tersendiri loh. Gak sabar kan? Sabar ya Chavel mau tanya nih, berapa hari kamu akan liburan di <b>" + R.DESTINATION.title() + "</b>? (... <b><i>hari</i></b>)"
+
+    context.bot.send_photo(chat_id=update.effective_chat.id, photo=url, caption=text,
+                           parse_mode=ParseMode.HTML)
 
 def error(update:Update, context:CallbackContext):
     update.message.reply_text(
