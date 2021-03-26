@@ -42,4 +42,15 @@ def shortest_path(df, current_location, place_type):
   df_x = df_x[df_x['type'] == place_type]
   df_x = df_x.sort_values('distance')
   list_place = df_x['place_name'].values
-  return list_place[:5]
+  tmp = []
+  for i in list_place:
+      if place_type == 'hotel':
+          if i not in SAVE_HOTEL:
+              tmp.append(i)
+      elif place_type == 'resto':
+          if i not in SAVE_RESTO:
+              tmp.append(i)
+      elif place_type == 'place':
+          if i not in SAVE_DEST:
+              tmp.append(i)
+  return tmp[:5]
